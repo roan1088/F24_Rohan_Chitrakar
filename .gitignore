@@ -1,0 +1,6 @@
+# ide config files
+.vs/
+.vscode/
+# build folders
+x64/
+build/
