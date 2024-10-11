@@ -12,3 +12,5 @@ target_compile_definitions(Meow PRIVATE MEOW_LIB)
 if(MSVC)
 target_compile_definitions(Meow PUBLIC MEOW_MS_COMPILER)
 endif()
+
+target_precompile_headers(Meow PRIVATE pch.h)
