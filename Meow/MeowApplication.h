@@ -1,8 +1,10 @@
 #pragma once
 
+#include "MeowUtilities.h"
+
 namespace Meow {
 
-class MeowApplication {
+class MEOW_API MeowApplication {
 public:
 	void Run();
 	virtual void Initialize();
