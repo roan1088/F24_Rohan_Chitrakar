@@ -3,7 +3,8 @@
 
 class MyGameApplication : public Meow::MeowApplication {
 	virtual void Initialize() override {
-		std::cout << "Starting..." << std::endl;
+		MEOW_LOG("Starting...");
+		MEOW_ERROR("Test error message...");
 	}
 	virtual void Update() override {
 		// std::cout << "Running..." << std::endl;
