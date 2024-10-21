@@ -7,6 +7,8 @@ set(CMAKE_CXX_STANDARD_REQUIRED TRUE)
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 
+set(BUILD_SHARED_LIBS ON)
+add_subdirectory(glfw)
 add_subdirectory(Meow)
 add_subdirectory(myGame)
 

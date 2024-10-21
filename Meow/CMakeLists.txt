@@ -17,3 +17,5 @@ target_compile_definitions(Meow PUBLIC MEOW_MS_COMPILER)
 endif()
 
 target_precompile_headers(Meow PRIVATE pch.h)
+
+target_link_libraries(Meow glfw)
