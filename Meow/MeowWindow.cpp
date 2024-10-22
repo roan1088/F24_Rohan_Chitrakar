@@ -34,4 +34,12 @@ int MeowWindow::GetHeight() const {
 	return implementation->GetHeight();
 }
 
+void MeowWindow::SwapBuffers() {
+	implementation->SwapBuffers();
+}
+
+void MeowWindow::PollEvents() {
+	implementation->PollEvents();
+}
+
 }

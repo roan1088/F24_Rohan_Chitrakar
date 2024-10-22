@@ -15,6 +15,9 @@ public:
 	int GetWidth() const;
 	int GetHeight() const;
 
+	void SwapBuffers();
+	void PollEvents();
+
 private:
 	std::unique_ptr<WindowImpl> implementation{nullptr};
 

@@ -31,4 +31,12 @@ int WindowGLFW::GetHeight() const {
 	return height;
 }
 
+void WindowGLFW::SwapBuffers() {
+	glfwSwapBuffers(windowPtr);
+}
+
+void WindowGLFW::PollEvents() {
+	glfwPollEvents();
+}
+
 }
