@@ -5,9 +5,6 @@ class MyGameApplication : public Meow::MeowApplication {
 	virtual void Initialize() override {
 		MEOW_LOG("Starting...");
 		MEOW_ERROR("Test error message...");
-
-		Meow::MeowWindow::Init();
-		Meow::MeowWindow::GetWindow()->CreateWindow(800, 600, "test");
 	}
 
 	virtual void Update() override {
