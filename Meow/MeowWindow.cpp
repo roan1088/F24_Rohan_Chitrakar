@@ -6,10 +6,20 @@ namespace Meow {
 
 MeowWindow::MeowWindow() {
 	#ifdef MEOW_GLFW
-	implementation = new WindowGLFW;
+	implementation = std::unique_ptr<WindowImpl>{new WindowGLFW};
 	#else
 	#window_implementation_isnt_chosen
 	#endif
+}
+
+void MeowWindow::Init() {
+	if (instance == nullptr) {
+		instance = std::unique_ptr<MeowWindow>{new MeowWindow};
+	}
+}
+
+std::unique_ptr<MeowWindow>& MeowWindow::GetWindow() {
+	return instance;
 }
 
 void MeowWindow::CreateWindow(int width, int height, std::string windowName) {

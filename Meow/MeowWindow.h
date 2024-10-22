@@ -8,14 +8,18 @@ namespace Meow {
 
 class MEOW_API MeowWindow {
 public:
-	MeowWindow();
+	static void Init();
+	static std::unique_ptr<MeowWindow>& GetWindow();
 
 	void CreateWindow(int width, int height, std::string windowName);
 	int GetWidth() const;
 	int GetHeight() const;
 
 private:
-	WindowImpl* implementation{nullptr};
+	std::unique_ptr<WindowImpl> implementation{nullptr};
+
+	MeowWindow();
+	inline static std::unique_ptr<MeowWindow> instance;
 };
 
 }
