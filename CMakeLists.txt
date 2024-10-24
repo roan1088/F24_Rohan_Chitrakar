@@ -2,6 +2,8 @@ cmake_minimum_required(VERSION 3.24)
 
 project(F24_Rohan_Chitrakar)
 
+set(CMAKE_SHARED_LIBRARY_PREFIX "") 
+
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED TRUE)
 
