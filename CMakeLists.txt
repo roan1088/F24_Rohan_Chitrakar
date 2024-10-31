@@ -11,6 +11,7 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 
 set(BUILD_SHARED_LIBS ON)
 add_subdirectory(glfw)
+add_subdirectory(glad)
 add_subdirectory(Meow)
 add_subdirectory(myGame)
 
