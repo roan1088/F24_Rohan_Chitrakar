@@ -13,6 +13,7 @@ add_library(Meow SHARED ${SOURCE_FILES})
 include_directories(.)
 include_directories(../glfw/include)
 include_directories(../glad/include)
+include_directories(../stbi)
 
 target_compile_definitions(Meow PRIVATE MEOW_LIB)
 target_compile_definitions(Meow PUBLIC
@@ -28,3 +29,4 @@ target_precompile_headers(Meow PRIVATE pch.h)
 
 target_link_libraries(Meow glfw)
 target_link_libraries(Meow glad)
+target_link_libraries(Meow stbi)
