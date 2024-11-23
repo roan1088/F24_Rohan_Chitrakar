@@ -6,6 +6,9 @@ MeowApplication.cpp
 MeowWindow.cpp
 WindowImpl.h
 codeGLFW/WindowGLFW.cpp
+Image.cpp
+ImageImpl.h
+codeOpenGL/OpenGLImage.cpp
 )
 
 add_library(Meow SHARED ${SOURCE_FILES})
@@ -20,6 +23,7 @@ target_compile_definitions(Meow PUBLIC
 $<$<CONFIG:Debug>:MEOW_DEBUG=2>
 $<$<CONFIG:RelWithDebInfo>:MEOW_DEBUG=1>)
 target_compile_definitions(Meow PRIVATE MEOW_GLFW)
+target_compile_definitions(Meow PUBLIC MEOW_OPENGL)
 
 if(MSVC)
 target_compile_definitions(Meow PUBLIC MEOW_MS_COMPILER)
