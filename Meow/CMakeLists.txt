@@ -12,6 +12,9 @@ codeOpenGL/OpenGLImage.cpp
 Shaders.cpp
 ShadersImpl.h
 codeOpenGL/OpenGLShaders.cpp
+Renderer.cpp
+RendererImpl.h
+codeOpenGL/OpenGLRenderer.cpp
 )
 
 add_library(Meow SHARED ${SOURCE_FILES})
