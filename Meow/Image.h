@@ -17,9 +17,9 @@ public:
 	int GetWidth() const;
 	int GetHeight() const;
 
-private:
 	void Bind() const;
 
+private:
 	std::unique_ptr<ImageImpl> implementation;
 
 	friend class Renderer;
