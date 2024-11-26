@@ -9,6 +9,9 @@ codeGLFW/WindowGLFW.cpp
 Image.cpp
 ImageImpl.h
 codeOpenGL/OpenGLImage.cpp
+Shaders.cpp
+ShadersImpl.h
+codeOpenGL/OpenGLShaders.cpp
 )
 
 add_library(Meow SHARED ${SOURCE_FILES})
