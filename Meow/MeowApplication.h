@@ -1,6 +1,9 @@
 #pragma once
 
+#include "pch.h"
 #include "MeowUtilities.h"
+
+constexpr int FRAME_RATE{60};
 
 namespace Meow {
 
@@ -13,6 +16,9 @@ public:
 
 private:
 	bool shouldContinue{true};
+
+	std::chrono::steady_clock::time_point mNextFrameTime;
+	std::chrono::milliseconds mFrameDuration{std::chrono::milliseconds{1000} / FRAME_RATE};
 };
 
 }
