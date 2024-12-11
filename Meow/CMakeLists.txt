@@ -15,6 +15,7 @@ codeOpenGL/OpenGLShaders.cpp
 Renderer.cpp
 RendererImpl.h
 codeOpenGL/OpenGLRenderer.cpp
+MeowEvents.cpp
 )
 
 add_library(Meow SHARED ${SOURCE_FILES})
