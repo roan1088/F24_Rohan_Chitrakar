@@ -11,6 +11,8 @@ void MeowApplication::Run() {
 	Meow::MeowWindow::GetWindow()->CreateWindow(800, 600, "test");
 	Meow::Renderer::Init();
 
+	SetWindowEventHandler([this](const WindowEvent& event) {DefaultWindowEventHandler(event);});
+
 	Initialize();
 
 	mNextFrameTime = std::chrono::steady_clock::now() + mFrameDuration;
@@ -38,6 +40,12 @@ void MeowApplication::SetKeyEventHandler(const std::function<void(const KeyEvent
 
 void MeowApplication::SetWindowEventHandler(const std::function<void(const WindowEvent&)>& newHandler) {
 	MeowWindow::GetWindow()->SetWindowEventHandler(newHandler);
+}
+
+void MeowApplication::DefaultWindowEventHandler(const WindowEvent& event) {
+	if(event.GetWindowAction() == WindowEvent::WindowAction::CLOSE) {
+		shouldContinue = false;
+	}
 }
 
 }

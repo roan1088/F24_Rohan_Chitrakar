@@ -18,6 +18,8 @@ public:
 	void SetKeyEventHandler(const std::function<void(const KeyEvent&)>& newHandler);
 	void SetWindowEventHandler(const std::function<void(const WindowEvent&)>& newHandler);
 
+	void DefaultWindowEventHandler(const WindowEvent& event);
+
 private:
 	bool shouldContinue{true};
 
