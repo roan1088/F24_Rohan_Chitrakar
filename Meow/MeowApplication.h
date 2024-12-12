@@ -2,6 +2,7 @@
 
 #include "pch.h"
 #include "MeowUtilities.h"
+#include "MeowEvents.h"
 
 constexpr int FRAME_RATE{60};
 
@@ -13,6 +14,9 @@ public:
 	virtual void Initialize();
 	virtual void Update();
 	virtual void Shutdown();
+
+	void SetKeyEventHandler(const std::function<void(const KeyEvent&)>& newHandler);
+	void SetWindowEventHandler(const std::function<void(const WindowEvent&)>& newHandler);
 
 private:
 	bool shouldContinue{true};

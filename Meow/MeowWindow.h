@@ -3,6 +3,7 @@
 #include "pch.h"
 #include "WindowImpl.h"
 #include "MeowUtilities.h"
+#include "MeowEvents.h"
 
 namespace Meow {
 
@@ -14,6 +15,9 @@ public:
 	void CreateWindow(int width, int height, std::string windowName);
 	int GetWidth() const;
 	int GetHeight() const;
+
+	void SetKeyEventHandler(const std::function<void(const KeyEvent&)>& newHandler);
+	void SetWindowEventHandler(const std::function<void(const WindowEvent&)>& newHandler);
 
 	void SwapBuffers();
 	void PollEvents();

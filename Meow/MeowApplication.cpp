@@ -32,4 +32,12 @@ void MeowApplication::Initialize() {}
 void MeowApplication::Update() {}
 void MeowApplication::Shutdown() {}
 
+void MeowApplication::SetKeyEventHandler(const std::function<void(const KeyEvent&)>& newHandler) {
+	MeowWindow::GetWindow()->SetKeyEventHandler(newHandler);
+}
+
+void MeowApplication::SetWindowEventHandler(const std::function<void(const WindowEvent&)>& newHandler) {
+	MeowWindow::GetWindow()->SetWindowEventHandler(newHandler);
+}
+
 }

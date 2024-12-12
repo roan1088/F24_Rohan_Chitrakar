@@ -34,6 +34,14 @@ int MeowWindow::GetHeight() const {
 	return implementation->GetHeight();
 }
 
+void MeowWindow::SetKeyEventHandler(const std::function<void(const KeyEvent&)>& newHandler) {
+	implementation->SetKeyEventHandler(newHandler);
+}
+
+void MeowWindow::SetWindowEventHandler(const std::function<void(const WindowEvent&)>& newHandler) {
+	implementation->SetWindowEventHandler(newHandler);
+}
+
 void MeowWindow::SwapBuffers() {
 	implementation->SwapBuffers();
 }
