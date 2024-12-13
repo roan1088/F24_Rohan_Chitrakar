@@ -2,7 +2,9 @@ cmake_minimum_required(VERSION 3.24)
 
 project(F24_Rohan_Chitrakar)
 
+if(MINGW)
 set(CMAKE_SHARED_LIBRARY_PREFIX "") 
+endif()
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED TRUE)
@@ -17,3 +19,6 @@ add_subdirectory(Meow)
 add_subdirectory(myGame)
 
 set_property(DIRECTORY PROPERTY VS_STARTUP_PROJECT myGame)
+
+file(COPY Meow/assets DESTINATION ${CMAKE_BINARY_DIR}/Meow)
+file(COPY myGame/assets DESTINATION ${CMAKE_BINARY_DIR}/myGame)
