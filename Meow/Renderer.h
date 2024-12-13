@@ -5,6 +5,7 @@
 #include "RendererImpl.h"
 #include "Image.h"
 #include "Shaders.h"
+#include "Unit.h"
 
 namespace Meow {
 
@@ -14,6 +15,8 @@ public:
 
 	static void Draw(const Image& pic, int xCoord, int yCoord);
 	static void Draw(const Image& pic, int xCoord, int yCoord, const Shaders& shaders);
+	static void Draw(const Unit& unit);
+	static void Draw(const Unit& unit, const Shaders& shaders);
 
 	static void ClearScreen();
 

@@ -27,6 +27,18 @@ void Renderer::Draw(const Image& pic, int xCoord, int yCoord, const Shaders& sha
 	instance->implementation->Draw(pic, xCoord, yCoord, shaders);
 }
 
+void Renderer::Draw(const Unit& unit) {
+	if(unit.mIsVisible) {
+		Draw(unit.mImage, unit.mXCoord, unit.mYCoord);
+	}
+}
+
+void Renderer::Draw(const Unit& unit, const Shaders& shaders) {
+	if(unit.mIsVisible) {
+		Draw(unit.mImage, unit.mXCoord, unit.mYCoord, shaders);
+	}
+}
+
 void Renderer::ClearScreen() {
 	instance->implementation->ClearScreen();
 }
