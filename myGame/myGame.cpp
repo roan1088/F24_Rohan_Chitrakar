@@ -21,9 +21,9 @@ class MyGameApplication : public Meow::MeowApplication {
 		windowWidth = Meow::MeowWindow::GetWindow()->GetWidth();
 		windowHeight = Meow::MeowWindow::GetWindow()->GetHeight();
 
-		stars[0].LoadImage("../../myGame/assets/background/stars0.png");
-		stars[1].LoadImage("../../myGame/assets/background/stars1.png");
-		stars[2].LoadImage("../../myGame/assets/background/stars2.png");
+		stars[0].LoadImage("../myGame/assets/background/stars0.png");
+		stars[1].LoadImage("../myGame/assets/background/stars1.png");
+		stars[2].LoadImage("../myGame/assets/background/stars2.png");
 
 		for (int i = 0; i < background.size(); i++) {
 			background[i].x = windowWidth * i / (background.size() - 1);

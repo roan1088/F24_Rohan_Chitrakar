@@ -14,8 +14,8 @@ OpenGLRenderer::OpenGLRenderer() {
 	}
 
 	defaultShaders.LoadShaders(
-		"../../Meow/assets/shaders/defaultVertexShader.glsl",
-		"../../Meow/assets/shaders/defaultFragmentShader.glsl"
+		"../Meow/assets/shaders/defaultVertexShader.glsl",
+		"../Meow/assets/shaders/defaultFragmentShader.glsl"
 	);
 
 	glGenVertexArrays(1, &VAO);
