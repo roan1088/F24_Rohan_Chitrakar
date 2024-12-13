@@ -10,6 +10,8 @@ namespace Meow {
 
 class MEOW_API MeowApplication {
 public:
+	MeowApplication();
+
 	void Run();
 	virtual void Initialize();
 	virtual void Update();

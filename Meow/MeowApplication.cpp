@@ -6,12 +6,15 @@
 
 namespace Meow {
 
-void MeowApplication::Run() {
+MeowApplication::MeowApplication() {
 	Meow::MeowWindow::Init();
 	Meow::MeowWindow::GetWindow()->CreateWindow(800, 600, "test");
 	Meow::Renderer::Init();
 
 	SetWindowEventHandler([this](const WindowEvent& event) {DefaultWindowEventHandler(event);});
+}
+
+void MeowApplication::Run() {
 
 	Initialize();
 
