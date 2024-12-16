@@ -1,11 +1,12 @@
 #include "MyGameApplication.h"
 
 #include <cstdlib>
-#include <ctime>
+#include <chrono>
 
 void MyGameApplication::Initialize() {
 	MEOW_LOG("Starting...");
-	srand(time(nullptr));
+	MEOW_LOG("EPOCH: " << std::chrono::system_clock::now().time_since_epoch().count());
+	srand(std::chrono::system_clock::now().time_since_epoch().count());
 
 	SetKeyEventHandler([this](const Meow::KeyEvent& event) {KeyEventHandler(event);});
 
