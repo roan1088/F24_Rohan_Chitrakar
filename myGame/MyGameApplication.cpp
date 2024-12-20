@@ -11,14 +11,23 @@ void MyGameApplication::Initialize() {
 	SetKeyEventHandler([this](const Meow::KeyEvent& event) {KeyEventHandler(event);});
 
 	SetUpBackground();
+
+	timer.Reset();
 }
 
 void MyGameApplication::Update() {
 	DrawBackground();
 	Meow::Renderer::Draw(player);
+	DrawAsteroids();
+
+	if (timer.GetTime() >= 3) {
+		SpawnAsteroid();
+		timer.Reset();
+	}
 
 	MoveBackground();
 	UpdatePlayerPosition();
+	UpdateAsteroids();
 }
 
 void MyGameApplication::SetUpBackground() {
@@ -66,6 +75,28 @@ void MyGameApplication::UpdatePlayerPosition() {
 	}
 
 	player.SetCoords(player_x, player_y);
+}
+
+void MyGameApplication::DrawAsteroids() {
+	for (int i = 0; i < asteroids.size(); i++) {
+		Meow::Renderer::Draw(asteroids[i]);
+	}
+}
+
+void MyGameApplication::SpawnAsteroid() {
+	Meow::Unit asteroid{"../myGame/assets/asteroid/asteroid.png", 0, 0};
+	int y = rand() % (windowHeight - asteroid.GetHeight());
+	asteroid.SetCoords(windowWidth, y);
+	asteroids.push_back(std::move(asteroid));
+}
+
+void MyGameApplication::UpdateAsteroids() {
+	for (int i = 0; i < asteroids.size(); i++) {
+		asteroids[i].UpdateXCoord(ASTEROID_SPEED);
+		if (asteroids[i].GetXCoord() < 0) {
+			asteroids.erase(asteroids.begin() + i);
+		}
+	}
 }
 
 void MyGameApplication::KeyEventHandler(const Meow::KeyEvent& event) {
