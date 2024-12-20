@@ -6,7 +6,7 @@
 #include "Timer.h"
 
 constexpr int PLAYER_SPEED{8};
-constexpr int ASTEROID_SPEED{-2};
+constexpr int ASTEROID_SPEED{-4};
 
 class MyGameApplication : public Meow::MeowApplication {
 public:

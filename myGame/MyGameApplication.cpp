@@ -93,7 +93,7 @@ void MyGameApplication::SpawnAsteroid() {
 void MyGameApplication::UpdateAsteroids() {
 	for (int i = 0; i < asteroids.size(); i++) {
 		asteroids[i].UpdateXCoord(ASTEROID_SPEED);
-		if (asteroids[i].GetXCoord() < 0) {
+		if (asteroids[i].GetXCoord() < -asteroids[i].GetWidth()) {
 			asteroids.erase(asteroids.begin() + i);
 		}
 	}
