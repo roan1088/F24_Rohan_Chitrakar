@@ -42,6 +42,10 @@ void MyGameApplication::Update() {
 	DrawBackground();
 	Meow::Renderer::Draw(player);
 	DrawAsteroids();
+
+	if (game_state == GameState::MAIN_MENU) {
+		DrawMainMenu();
+	}
 }
 
 void MyGameApplication::SetUpBackground() {
@@ -136,6 +140,13 @@ void MyGameApplication::ChangeGameState(GameState new_state) {
 		MEOW_LOG("Game State changed to GameOver.");
 		timer.Reset();
 	}
+}
+
+void MyGameApplication::DrawMainMenu() {
+	Meow::Unit start_instruction{"../myGame/assets/text/start_ins.png", 177, 64};
+	Meow::Renderer::Draw(start_instruction);
+	Meow::Unit move_instruction{"../myGame/assets/text/move_ins.png", 64, 256};
+	Meow::Renderer::Draw(move_instruction);
 }
 
 void MyGameApplication::KeyEventHandler(const Meow::KeyEvent& event) {

@@ -33,6 +33,8 @@ public:
 	bool CheckCollision();
 	void ChangeGameState(GameState new_state);
 
+	void DrawMainMenu();
+
 	void KeyEventHandler(const Meow::KeyEvent& event);
 
 private:
