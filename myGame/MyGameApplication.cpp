@@ -16,18 +16,23 @@ void MyGameApplication::Initialize() {
 }
 
 void MyGameApplication::Update() {
-	DrawBackground();
-	Meow::Renderer::Draw(player);
-	DrawAsteroids();
-
 	if (timer.GetTime() >= 3) {
 		SpawnAsteroid();
 		timer.Reset();
 	}
 
+	if (CheckCollision()) {
+		MEOW_LOG("GAMEOVER");
+		while (true) {} // stop gameplay
+	}
+
 	MoveBackground();
 	UpdatePlayerPosition();
 	UpdateAsteroids();
+
+	DrawBackground();
+	Meow::Renderer::Draw(player);
+	DrawAsteroids();
 }
 
 void MyGameApplication::SetUpBackground() {
@@ -97,6 +102,15 @@ void MyGameApplication::UpdateAsteroids() {
 			asteroids.erase(asteroids.begin() + i);
 		}
 	}
+}
+
+bool MyGameApplication::CheckCollision() {
+	for (int i = 0; i < asteroids.size(); i++) {
+		if (Meow::UnitsOverlap(player, asteroids[i])) {
+			return true;
+		}
+	}
+	return false;
 }
 
 void MyGameApplication::KeyEventHandler(const Meow::KeyEvent& event) {

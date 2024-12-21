@@ -28,6 +28,8 @@ public:
 	void SpawnAsteroid();
 	void UpdateAsteroids();
 
+	bool CheckCollision();
+
 	void KeyEventHandler(const Meow::KeyEvent& event);
 
 private:
