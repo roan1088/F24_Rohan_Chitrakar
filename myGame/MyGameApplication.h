@@ -15,7 +15,7 @@ public:
 		float y;
 	};
 
-	enum class GameState{MAIN_MENU, GAME_PLAY};
+	enum class GameState{MAIN_MENU, GAME_PLAY, GAME_OVER};
 
 	virtual void Initialize() override;
 	virtual void Update() override;

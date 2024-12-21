@@ -24,13 +24,20 @@ void MyGameApplication::Update() {
 
 		if (CheckCollision()) {
 			MEOW_LOG("GAMEOVER");
-			ChangeGameState(GameState::MAIN_MENU);
+			ChangeGameState(GameState::GAME_OVER);
 		}
 
 		MoveBackground();
 		UpdateAsteroids();
 	}
-	UpdatePlayerPosition();
+
+	if (game_state == GameState::GAME_OVER) {
+		if (timer.GetTime() >= 3) {
+			ChangeGameState(GameState::MAIN_MENU);
+		}
+	} else {
+		UpdatePlayerPosition();
+	}
 
 	DrawBackground();
 	Meow::Renderer::Draw(player);
@@ -123,7 +130,11 @@ void MyGameApplication::ChangeGameState(GameState new_state) {
 	} else if (new_state == GameState::MAIN_MENU) {
 		game_state = new_state;
 		MEOW_LOG("Game State changed to MainMenu.");
-		
+		asteroids.clear();
+	} else if (new_state == GameState::GAME_OVER) {
+		game_state = new_state;
+		MEOW_LOG("Game State changed to GameOver.");
+		timer.Reset();
 	}
 }
 
