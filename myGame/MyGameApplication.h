@@ -15,6 +15,8 @@ public:
 		float y;
 	};
 
+	enum class GameState{MAIN_MENU, GAME_PLAY};
+
 	virtual void Initialize() override;
 	virtual void Update() override;
 
@@ -29,6 +31,7 @@ public:
 	void UpdateAsteroids();
 
 	bool CheckCollision();
+	void ChangeGameState(GameState new_state);
 
 	void KeyEventHandler(const Meow::KeyEvent& event);
 
@@ -41,4 +44,5 @@ private:
 	Position player_movement{0, 0};
 	Timer timer;
 	std::vector<Meow::Unit> asteroids;
+	GameState game_state{GameState::MAIN_MENU};
 };

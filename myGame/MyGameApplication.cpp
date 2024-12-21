@@ -16,19 +16,21 @@ void MyGameApplication::Initialize() {
 }
 
 void MyGameApplication::Update() {
-	if (timer.GetTime() >= 3) {
-		SpawnAsteroid();
-		timer.Reset();
-	}
+	if (game_state == GameState::GAME_PLAY) {
+		if (timer.GetTime() >= 3) {
+			SpawnAsteroid();
+			timer.Reset();
+		}
 
-	if (CheckCollision()) {
-		MEOW_LOG("GAMEOVER");
-		while (true) {} // stop gameplay
-	}
+		if (CheckCollision()) {
+			MEOW_LOG("GAMEOVER");
+			ChangeGameState(GameState::MAIN_MENU);
+		}
 
-	MoveBackground();
+		MoveBackground();
+		UpdateAsteroids();
+	}
 	UpdatePlayerPosition();
-	UpdateAsteroids();
 
 	DrawBackground();
 	Meow::Renderer::Draw(player);
@@ -113,6 +115,18 @@ bool MyGameApplication::CheckCollision() {
 	return false;
 }
 
+void MyGameApplication::ChangeGameState(GameState new_state) {
+	if (new_state == GameState::GAME_PLAY) {
+		game_state = new_state;
+		MEOW_LOG("Game State changed to Gameplay.");
+		timer.Reset();
+	} else if (new_state == GameState::MAIN_MENU) {
+		game_state = new_state;
+		MEOW_LOG("Game State changed to MainMenu.");
+		
+	}
+}
+
 void MyGameApplication::KeyEventHandler(const Meow::KeyEvent& event) {
 	if (event.GetKeyCode() == MEOW_KEY_W || event.GetKeyCode() == MEOW_KEY_UP) {
 		if (event.GetKeyAction() == Meow::KeyEvent::KeyAction::PRESS) {
@@ -141,5 +155,9 @@ void MyGameApplication::KeyEventHandler(const Meow::KeyEvent& event) {
 		} else if (event.GetKeyAction() == Meow::KeyEvent::KeyAction::RELEASE) {
 			player_movement.x -= PLAYER_SPEED;
 		}
+	}
+
+	if (game_state == GameState::MAIN_MENU && event.GetKeyCode() == MEOW_KEY_SPACE) {
+		ChangeGameState(GameState::GAME_PLAY);
 	}
 }
