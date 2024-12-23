@@ -35,6 +35,7 @@ public:
 	void ChangeGameState(GameState new_state);
 
 	void DrawMainMenu();
+	void DrawGameOver();
 
 	void KeyEventHandler(const Meow::KeyEvent& event);
 

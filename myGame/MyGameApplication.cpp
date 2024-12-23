@@ -47,6 +47,8 @@ void MyGameApplication::Update() {
 
 	if (game_state == GameState::MAIN_MENU) {
 		DrawMainMenu();
+	} else if (game_state == GameState::GAME_OVER) {
+		DrawGameOver();
 	}
 }
 
@@ -151,6 +153,11 @@ void MyGameApplication::DrawMainMenu() {
 	Meow::Renderer::Draw(start_instruction);
 	Meow::Unit move_instruction{"../myGame/assets/text/move_ins.png", 64, 256};
 	Meow::Renderer::Draw(move_instruction);
+}
+
+void MyGameApplication::DrawGameOver() {
+	Meow::Unit game_over{"../myGame/assets/text/game_over.png", 230, 280};
+	Meow::Renderer::Draw(game_over);
 }
 
 void MyGameApplication::KeyEventHandler(const Meow::KeyEvent& event) {
