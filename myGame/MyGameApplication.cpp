@@ -43,6 +43,7 @@ void MyGameApplication::Update() {
 	DrawBackground();
 	Meow::Renderer::Draw(player);
 	DrawAsteroids();
+	scorer.DrawScore();
 
 	if (game_state == GameState::MAIN_MENU) {
 		DrawMainMenu();
