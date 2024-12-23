@@ -2,6 +2,7 @@ set(SOURCE_FILES
 myGame.cpp
 MyGameApplication.cpp
 Timer.cpp
+Scorer.cpp
 )
 
 add_executable(myGame ${SOURCE_FILES})

@@ -23,7 +23,7 @@ void MyGameApplication::Update() {
 		}
 
 		if (CheckCollision()) {
-			MEOW_LOG("GAMEOVER");
+			MEOW_LOG("GAMEOVER!! Final score: " << scorer.GetScore());
 			ChangeGameState(GameState::GAME_OVER);
 		}
 
@@ -34,6 +34,7 @@ void MyGameApplication::Update() {
 	if (game_state == GameState::GAME_OVER) {
 		if (timer.GetTime() >= 3) {
 			ChangeGameState(GameState::MAIN_MENU);
+			scorer.Reset();
 		}
 	} else {
 		UpdatePlayerPosition();
@@ -113,6 +114,8 @@ void MyGameApplication::UpdateAsteroids() {
 		asteroids[i].UpdateXCoord(ASTEROID_SPEED);
 		if (asteroids[i].GetXCoord() < -asteroids[i].GetWidth()) {
 			asteroids.erase(asteroids.begin() + i);
+			scorer.AddScore();
+			MEOW_LOG(scorer.GetScore());
 		}
 	}
 }

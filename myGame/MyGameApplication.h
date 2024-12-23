@@ -4,6 +4,7 @@
 #include <array>
 #include <vector>
 #include "Timer.h"
+#include "Scorer.h"
 
 constexpr int PLAYER_SPEED{8};
 constexpr int ASTEROID_SPEED{-4};
@@ -47,4 +48,5 @@ private:
 	Timer timer;
 	std::vector<Meow::Unit> asteroids;
 	GameState game_state{GameState::MAIN_MENU};
+	Scorer scorer;
 };
